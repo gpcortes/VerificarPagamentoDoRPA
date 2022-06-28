@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  VerificarPagamentoDoRPATask:
+    image: verificarpagamentodorpatask
+    hostname: VerificarPagamentoDoRPATask
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - NODE_ENV=production
+      - TOPIC=VerificarPagamentoDoRPATask
+      - ENG_REST_URL=${CAMUNDA_URL}
+      - ENG_REST_USERNAME=${CAMUNDA_USERNAME}
+      - ENG_REST_PASSWORD=${CAMUNDA_PASSWORD}
+      - MAX_TASK_DURATION=30000
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_PORT=${SMTP_PORT}
+      - MAIL_ACCOUNT=${MAIL_ACCOUNT}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_FROM=${MAIL_FROM}
+      - FINAN_HOST_DB=${FINAN_HOST_DB}
+      - FINAN_PORT_DB=${FINAN_PORT_DB}
+      - FINAN_USER_DB=${FINAN_USER_DB}
+      - FINAN_PASSWD_DB=${FINAN_PASSWD_DB}
+      - FINAN_DB=${FINAN_DB}
+      - FINAN_FTP_HOST=${FINAN_FTP_HOST'}
+      - FINAN_FTP_USER=${FINAN_FTP_USER'}
+      - FINAN_FTP_PASSWD=${FINAN_FTP_PASSWD'}
+    volumes:
+      - ${ACS_DOCS_PATH}/GerenciaContratosDeRPAProcess/outputs:/home/appuser/outputs:rw
+      - ${ACS_DOCS_PATH}/GerenciaContratosDeRPAProcess/templates:/home/appuser/templates:ro
+
+networks:
+  default:
+    external: true
+    name: backend
