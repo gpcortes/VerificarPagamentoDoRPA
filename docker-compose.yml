@@ -25,9 +25,9 @@ services:
       - FINAN_USER_DB=${FINAN_USER_DB}
       - FINAN_PASSWD_DB=${FINAN_PASSWD_DB}
       - FINAN_DB=${FINAN_DB}
-      - FINAN_FTP_HOST=${FINAN_FTP_HOST'}
-      - FINAN_FTP_USER=${FINAN_FTP_USER'}
-      - FINAN_FTP_PASSWD=${FINAN_FTP_PASSWD'}
+      - FINAN_FTP_HOST=${FINAN_FTP_HOST}
+      - FINAN_FTP_USER=${FINAN_FTP_USER}
+      - FINAN_FTP_PASSWD=${FINAN_FTP_PASSWD}
     volumes:
       - ${ACS_DOCS_PATH}/GerenciaContratosDeRPAProcess/outputs:/home/appuser/outputs:rw
       - ${ACS_DOCS_PATH}/GerenciaContratosDeRPAProcess/templates:/home/appuser/templates:ro
