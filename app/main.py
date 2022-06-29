@@ -10,6 +10,7 @@ from sqlalchemy import create_engine
 import pymysql
 from time import sleep
 from os.path import expanduser, join
+import os
 
 
 #import sys
