@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  VerificarPagamentoDoRPATask:
-    image: verificarpagamentodorpatask
-    hostname: VerificarPagamentoDoRPATask
+  VerificarPagamentoDoRPA:
+    image: verificarpagamentodorpa
+    hostname: VerificarPagamentoDoRPA
     restart: unless-stopped
     build:
       context: .
