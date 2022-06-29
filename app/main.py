@@ -43,7 +43,7 @@ def load_env():
     return FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB, FINAN_FTP_HOST, FINAN_FTP_USER, FINAN_FTP_PASSWD
 
 def inserir_dados_bd_protocolo(ano, hoje):
-    FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB = load_env()
+    FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB, _, _, _ = load_env()
     mydb = pymysql.connect(
         host=FINAN_HOST_DB,
         user=FINAN_USER_DB,
@@ -61,7 +61,7 @@ def inserir_dados_bd_protocolo(ano, hoje):
 
 
 def get_engine():
-    FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB = load_env()
+    FINAN_HOST_DB, FINAN_PORT_DB, FINAN_USER_DB, FINAN_PASSWD_DB, FINAN_DB, _, _, _ = load_env()
     return create_engine('mysql+pymysql://'+FINAN_USER_DB+':'+FINAN_PASSWD_DB+'@'+FINAN_HOST_DB+':'+FINAN_PORT_DB+'/'+FINAN_DB)
 
 
